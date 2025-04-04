@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Produtos</title>
+  <!-- Importando a fonte Lora -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      /* Fundo preto e imagem centralizada */
+      background-color: #000;
+      background-image: url("logo.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 35%; /* Ajuste a proporção conforme desejar */
+      background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+      
+      font-family: 'Lora', serif;
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh; /* Garante que o fundo ocupe a tela inteira */
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .product-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      /* Fundo semi-transparente para destacar os produtos */
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .product {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+    }
+    .product h2 {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+    .product .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .product label {
+      display: inline-block;
+      width: 120px;
+      font-size: 1em;
+    }
+    .product input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      font-size: 1em;
+    }
+    .process-order {
+      display: block;
+      width: 250px;
+      margin: 30px auto;
+      padding: 10px;
+      text-align: center;
+      background-color: #fff;
+      color: #111;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .process-order:hover {
+      background-color: #ddd;
+    }
+    /* Responsividade para telas menores */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .product-list {
+        padding: 10px;
+      }
+      .process-order {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Catálogo de Produtos</h1>
+  <div class="product-list">
+    <div class="product">
+      <h2>Produto 1</h2>
+      <p>Descrição do Produto 1</p>
+      <p class="price">Preço: R$10,00</p>
+      <label for="qty1">Quantidade:</label>
+      <input type="number" id="qty1" min="0" value="0">
+    </div>
+    <div class="product">
+      <h2>Produto 2</h2>
+      <p>Descrição do Produto 2</p>
+      <p class="price">Preço: R$20,00</p>
+      <label for="qty2">Quantidade:</label>
+      <input type="number" id="qty2" min="0" value="0">
+    </div>
+    <div class="product">
+      <h2>Produto 3</h2>
+      <p>Descrição do Produto 3</p>
+      <p class="price">Preço: R$30,00</p>
+      <label for="qty3">Quantidade:</label>
+      <input type="number" id="qty3" min="0" value="0">
+    </div>
+  </div>
+  <button class="process-order" onclick="processOrder()">Processar Pedido</button>
+
+  <script>
+    function processOrder() {
+      // Coleta as quantidades dos produtos
+      const qty1 = parseInt(document.getElementById('qty1').value) || 0;
+      const qty2 = parseInt(document.getElementById('qty2').value) || 0;
+      const qty3 = parseInt(document.getElementById('qty3').value) || 0;
+      
+      // Monta a mensagem do pedido
+      let message = "Pedido:\n";
+      if (qty1 > 0) {
+        message += "Produto 1: " + qty1 + "\n";
+      }
+      if (qty2 > 0) {
+        message += "Produto 2: " + qty2 + "\n";
+      }
+      if (qty3 > 0) {
+        message += "Produto 3: " + qty3 + "\n";
+      }
+      
+      // Se nenhum produto foi selecionado, exibe alerta
+      if (message === "Pedido:\n") {
+        alert("Selecione ao menos uma quantidade para algum produto.");
+        return;
+      }
+      
+      // Redireciona para o WhatsApp com o pedido formatado
+      const whatsappURL = "https://wa.me/5537999139844?text=" + encodeURIComponent(message);
+      window.location.href = whatsappURL;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
