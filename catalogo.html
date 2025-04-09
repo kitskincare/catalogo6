@@ -27,34 +27,34 @@
       margin-bottom: 30px;
       font-size: 2em;
     }
-    /* Cada família de produtos */
+    /* Seção de cada família de produtos */
     .family-section {
       margin-bottom: 40px;
+      overflow-x: auto;
+      padding-bottom: 10px; /* Espaço para a barra de rolagem, se necessário */
     }
     .family-title {
       font-weight: bold;
-      padding-left: 10px;
       margin-bottom: 15px;
       font-size: 1.5em;
+      padding-left: 10px;
     }
-    /* Container de produtos: grid de 4 colunas com barra de rolagem horizontal se necessário */
+    /* Container de produtos organizado em grid de 4 colunas */
     .product-container {
       display: grid;
       grid-template-columns: repeat(4, 250px);
       gap: 20px;
-      overflow-x: auto;
     }
-    /* Cada card de produto */
+    /* Cada produto (card) */
     .product-card {
       background-color: rgba(255, 255, 255, 0.1);
       padding: 10px;
       border-radius: 12px;
       text-align: center;
-      /* Para que os elementos internos fiquem centralizados */
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     .product-image {
       width: 150px;
@@ -63,17 +63,19 @@
       border-radius: 8px;
     }
     .product-name {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin-bottom: 5px;
     }
     .product-price {
-      font-size: 1.1em;
+      font-size: 1em;
+      font-weight: bold;
       margin-bottom: 5px;
     }
     .product-qty {
       width: 80px;
       padding: 5px;
       text-align: center;
+      margin-bottom: 5px;
     }
     .add-to-cart {
       background-color: #fff;
@@ -91,7 +93,7 @@
       font-size: 1.2em;
       color: #111;
     }
-    /* Botão para processar pedido geral */
+    /* Botão para processar o pedido geral */
     .process-order {
       display: block;
       width: 250px;
@@ -109,7 +111,7 @@
     .process-order:hover {
       background-color: #ddd;
     }
-    /* Responsividade: em telas pequenas, a grade terá 2 colunas */
+    /* Responsividade: em telas menores, a grid terá menos colunas */
     @media (max-width: 600px) {
       .product-container {
         grid-template-columns: repeat(2, 200px);
@@ -124,6 +126,7 @@
   <div class="family-section">
     <div class="family-title">ANILHA SPORT PINTADA</div>
     <div class="product-container">
+      <!-- Produto 1 -->
       <div class="product-card" data-name="ANILHA SPORT PINTADA - Produto Exemplo 1" data-price="10.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
@@ -133,7 +136,36 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
-      <!-- Repita o bloco acima para outros produtos desta família, se necessário -->
+      <!-- Produto 2 -->
+      <div class="product-card" data-name="ANILHA SPORT PINTADA - Produto Exemplo 2" data-price="10.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$10,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 3 -->
+      <div class="product-card" data-name="ANILHA SPORT PINTADA - Produto Exemplo 3" data-price="10.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$10,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 4 -->
+      <div class="product-card" data-name="ANILHA SPORT PINTADA - Produto Exemplo 4" data-price="10.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$10,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -141,9 +173,40 @@
   <div class="family-section">
     <div class="family-title">ANILHA SPORT EMBORRACHADA</div>
     <div class="product-container">
+      <!-- Produto 1 -->
       <div class="product-card" data-name="ANILHA SPORT EMBORRACHADA - Produto Exemplo 1" data-price="12.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$12,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 2 -->
+      <div class="product-card" data-name="ANILHA SPORT EMBORRACHADA - Produto Exemplo 2" data-price="12.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$12,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 3 -->
+      <div class="product-card" data-name="ANILHA SPORT EMBORRACHADA - Produto Exemplo 3" data-price="12.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$12,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 4 -->
+      <div class="product-card" data-name="ANILHA SPORT EMBORRACHADA - Produto Exemplo 4" data-price="12.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$12,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -157,9 +220,40 @@
   <div class="family-section">
     <div class="family-title">ANILHA VAZADA EMBORRACHADA</div>
     <div class="product-container">
+      <!-- Produto 1 -->
       <div class="product-card" data-name="ANILHA VAZADA EMBORRACHADA - Produto Exemplo 1" data-price="15.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$15,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 2 -->
+      <div class="product-card" data-name="ANILHA VAZADA EMBORRACHADA - Produto Exemplo 2" data-price="15.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$15,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 3 -->
+      <div class="product-card" data-name="ANILHA VAZADA EMBORRACHADA - Produto Exemplo 3" data-price="15.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$15,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <!-- Produto 4 -->
+      <div class="product-card" data-name="ANILHA VAZADA EMBORRACHADA - Produto Exemplo 4" data-price="15.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$15,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -182,6 +276,33 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="ANILHA VAZADA PINTADA - Produto Exemplo 2" data-price="13.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$13,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="ANILHA VAZADA PINTADA - Produto Exemplo 3" data-price="13.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$13,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="ANILHA VAZADA PINTADA - Produto Exemplo 4" data-price="13.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$13,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -192,6 +313,33 @@
       <div class="product-card" data-name="ANILHA BUMPER HI-TEMP - Produto Exemplo 1" data-price="18.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$18,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="ANILHA BUMPER HI-TEMP - Produto Exemplo 2" data-price="18.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$18,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="ANILHA BUMPER HI-TEMP - Produto Exemplo 3" data-price="18.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$18,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="ANILHA BUMPER HI-TEMP - Produto Exemplo 4" data-price="18.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$18,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -214,6 +362,33 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="COLCHONETE D20 - Produto Exemplo 2" data-price="25.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$25,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="COLCHONETE D20 - Produto Exemplo 3" data-price="25.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$25,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="COLCHONETE D20 - Produto Exemplo 4" data-price="25.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$25,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -224,6 +399,33 @@
       <div class="product-card" data-name="DUMBBELL SEXTAVADO PINTADO - Produto Exemplo 1" data-price="30.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$30,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL SEXTAVADO PINTADO - Produto Exemplo 2" data-price="30.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$30,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL SEXTAVADO PINTADO - Produto Exemplo 3" data-price="30.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$30,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL SEXTAVADO PINTADO - Produto Exemplo 4" data-price="30.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$30,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -246,6 +448,33 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 2" data-price="35.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$35,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 3" data-price="35.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$35,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 4" data-price="35.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$35,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -256,6 +485,33 @@
       <div class="product-card" data-name="DUMBBELL PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 1" data-price="40.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$40,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 2" data-price="40.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$40,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 3" data-price="40.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$40,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="DUMBBELL PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 4" data-price="40.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$40,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -278,6 +534,33 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="HALTER BOLA EMBORRACHADO - Produto Exemplo 2" data-price="45.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$45,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER BOLA EMBORRACHADO - Produto Exemplo 3" data-price="45.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$45,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER BOLA EMBORRACHADO - Produto Exemplo 4" data-price="45.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$45,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -288,6 +571,33 @@
       <div class="product-card" data-name="HALTER BOLA PINTADO - Produto Exemplo 1" data-price="50.00">
         <img src="https://via.placeholder.com/150" alt="Produto Exemplo 1" class="product-image">
         <p class="product-name">Produto Exemplo 1</p>
+        <p class="product-price">R$50,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER BOLA PINTADO - Produto Exemplo 2" data-price="50.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$50,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER BOLA PINTADO - Produto Exemplo 3" data-price="50.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$50,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER BOLA PINTADO - Produto Exemplo 4" data-price="50.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
         <p class="product-price">R$50,00</p>
         <input type="number" class="product-qty" min="0" value="0">
         <button class="add-to-cart" onclick="addToCart(this)">
@@ -310,6 +620,33 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO EMBORRACHADO - Produto Exemplo 2" data-price="55.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$55,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO EMBORRACHADO - Produto Exemplo 3" data-price="55.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$55,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO EMBORRACHADO - Produto Exemplo 4" data-price="55.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$55,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
@@ -326,26 +663,53 @@
           <i class="fas fa-shopping-bag"></i>
         </button>
       </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO PINTADO - Produto Exemplo 2" data-price="60.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 2" class="product-image">
+        <p class="product-name">Produto Exemplo 2</p>
+        <p class="product-price">R$60,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO PINTADO - Produto Exemplo 3" data-price="60.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 3" class="product-image">
+        <p class="product-name">Produto Exemplo 3</p>
+        <p class="product-price">R$60,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
+      <div class="product-card" data-name="HALTER SEXTAVADO PINTADO - Produto Exemplo 4" data-price="60.00">
+        <img src="https://via.placeholder.com/150" alt="Produto Exemplo 4" class="product-image">
+        <p class="product-name">Produto Exemplo 4</p>
+        <p class="product-price">R$60,00</p>
+        <input type="number" class="product-qty" min="0" value="0">
+        <button class="add-to-cart" onclick="addToCart(this)">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
     </div>
   </div>
   
-  <!-- Botão para processar o pedido geral -->
+  <!-- Botão geral de processar pedido -->
   <button class="process-order" onclick="processOrder()">Processar Pedido</button>
   
   <script>
-    // Função chamada ao clicar no botão de cada produto para adicionar ao "carrinho" (simulação)
+    // Função para adicionar um produto ao "carrinho" (simulação)
     function addToCart(btn) {
       const card = btn.parentElement;
       const name = card.getAttribute('data-name');
       const price = parseFloat(card.getAttribute('data-price'));
       const qty = parseInt(card.querySelector('.product-qty').value) || 0;
-      if(qty <= 0) {
+      if (qty <= 0) {
         alert("Selecione uma quantidade válida para adicionar ao carrinho.");
         return;
       }
       const total = price * qty;
-      // Aqui você pode armazenar os itens em um carrinho e redirecionar para outra página futuramente.
       alert("Adicionado ao carrinho:\n" + name + "\nQuantidade: " + qty + "\nTotal: R$" + total.toFixed(2));
+      // Aqui, você pode armazenar os itens em um carrinho para uso futuro.
     }
     
     // Função para processar o pedido geral e redirecionar via WhatsApp
@@ -354,24 +718,24 @@
       let message = "Pedido:\n";
       qtyInputs.forEach(input => {
         const qty = parseInt(input.value) || 0;
-        if(qty > 0) {
+        if (qty > 0) {
           const card = input.parentElement;
           const name = card.getAttribute('data-name');
           const price = parseFloat(card.getAttribute('data-price'));
           message += name + " | Quantidade: " + qty + " | Total: R$" + (price * qty).toFixed(2) + "\n";
         }
       });
-      if(message === "Pedido:\n") {
+      if (message === "Pedido:\n") {
         alert("Selecione ao menos uma quantidade para algum produto.");
         return;
       }
-      // Redireciona para o WhatsApp com a mensagem formatada.
       const whatsappURL = "https://wa.me/5537999139844?text=" + encodeURIComponent(message);
       window.location.href = whatsappURL;
     }
   </script>
 </body>
 </html>
+
 
 
 
