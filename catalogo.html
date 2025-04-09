@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo de Produtos</title>
-  <!-- Importando a fonte Lora -->
+  <!-- Importa a fonte Lora -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
     /* Reset básico */
@@ -14,45 +14,40 @@
       box-sizing: border-box;
     }
     body {
-      /* Fundo preto e imagem centralizada */
-      background-color: #000;
-      background-image: url("logo.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 35%; /* Ajuste a proporção conforme desejar */
-      background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
-      
       font-family: 'Lora', serif;
+      background-color: #000;
       color: #fff;
       padding: 20px;
-      min-height: 100vh; /* Garante que o fundo ocupe a tela inteira */
+      min-height: 100vh;
     }
     h1 {
       text-align: center;
       margin-bottom: 20px;
       font-size: 2em;
-      text-transform: uppercase;
-      letter-spacing: 2px;
     }
-    .product-list {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      /* Fundo semi-transparente para destacar os produtos */
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
+    /* Cada família de produtos */
+    .product-family {
+      margin-bottom: 30px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
     }
+    .product-family h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    /* Cada produto */
     .product {
       background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
+      padding: 10px;
       border-radius: 12px;
-    }
-    .product h2 {
-      font-size: 1.3em;
       margin-bottom: 10px;
+    }
+    .product h3 {
+      font-size: 1.3em;
+      margin-bottom: 5px;
     }
     .product p {
       font-size: 1em;
@@ -60,18 +55,19 @@
     }
     .product .price {
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .product label {
+      font-size: 1em;
       display: inline-block;
       width: 120px;
-      font-size: 1em;
     }
     .product input[type="number"] {
       width: 80px;
       padding: 5px;
       font-size: 1em;
     }
+    /* Botão de processar pedido */
     .process-order {
       display: block;
       width: 250px;
@@ -96,9 +92,6 @@
       body {
         padding: 10px;
       }
-      .product-list {
-        padding: 10px;
-      }
       .process-order {
         width: 90%;
       }
@@ -107,57 +100,180 @@
 </head>
 <body>
   <h1>Catálogo de Produtos</h1>
-  <div class="product-list">
+  
+  <!-- Família 1: ANILHA SPORT PINTADA -->
+  <div class="product-family">
+    <h2>ANILHA SPORT PINTADA</h2>
     <div class="product">
-      <h2>Produto 1</h2>
-      <p>Descrição do Produto 1</p>
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para ANILHA SPORT PINTADA.</p>
       <p class="price">Preço: R$10,00</p>
-      <label for="qty1">Quantidade:</label>
-      <input type="number" id="qty1" min="0" value="0">
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="ANILHA SPORT PINTADA - Produto Exemplo 1" min="0" value="0">
     </div>
+    <!-- Você pode duplicar o bloco acima para outros produtos desta família -->
+  </div>
+  
+  <!-- Família 2: ANILHA SPORT EMBORRACHADA -->
+  <div class="product-family">
+    <h2>ANILHA SPORT EMBORRACHADA</h2>
     <div class="product">
-      <h2>Produto 2</h2>
-      <p>Descrição do Produto 2</p>
-      <p class="price">Preço: R$20,00</p>
-      <label for="qty2">Quantidade:</label>
-      <input type="number" id="qty2" min="0" value="0">
-    </div>
-    <div class="product">
-      <h2>Produto 3</h2>
-      <p>Descrição do Produto 3</p>
-      <p class="price">Preço: R$30,00</p>
-      <label for="qty3">Quantidade:</label>
-      <input type="number" id="qty3" min="0" value="0">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para ANILHA SPORT EMBORRACHADA.</p>
+      <p class="price">Preço: R$12,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="ANILHA SPORT EMBORRACHADA - Produto Exemplo 1" min="0" value="0">
     </div>
   </div>
+  
+  <!-- Família 3: ANILHA VAZADA EMBORRACHADA -->
+  <div class="product-family">
+    <h2>ANILHA VAZADA EMBORRACHADA</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para ANILHA VAZADA EMBORRACHADA.</p>
+      <p class="price">Preço: R$15,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="ANILHA VAZADA EMBORRACHADA - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 4: ANILHA VAZADA PINTADA -->
+  <div class="product-family">
+    <h2>ANILHA VAZADA PINTADA</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para ANILHA VAZADA PINTADA.</p>
+      <p class="price">Preço: R$13,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="ANILHA VAZADA PINTADA - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 5: ANILHA BUMPER HI-TEMP -->
+  <div class="product-family">
+    <h2>ANILHA BUMPER HI-TEMP</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para ANILHA BUMPER HI-TEMP.</p>
+      <p class="price">Preço: R$18,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="ANILHA BUMPER HI-TEMP - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 6: COLCHONETE D20 -->
+  <div class="product-family">
+    <h2>COLCHONETE D20</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para COLCHONETE D20.</p>
+      <p class="price">Preço: R$25,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="COLCHONETE D20 - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 7: DUMBBELL SEXTAVADO PINTADO -->
+  <div class="product-family">
+    <h2>DUMBBELL SEXTAVADO PINTADO</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para DUMBBELL SEXTAVADO PINTADO.</p>
+      <p class="price">Preço: R$30,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="DUMBBELL SEXTAVADO PINTADO - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 8: DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA -->
+  <div class="product-family">
+    <h2>DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA.</p>
+      <p class="price">Preço: R$35,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="DUMBBELL SPORT PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 9: DUMBBELL PINTADO COM PEGADA EMBORRACHADA -->
+  <div class="product-family">
+    <h2>DUMBBELL PINTADO COM PEGADA EMBORRACHADA</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para DUMBBELL PINTADO COM PEGADA EMBORRACHADA.</p>
+      <p class="price">Preço: R$40,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="DUMBBELL PINTADO COM PEGADA EMBORRACHADA - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 10: HALTER BOLA EMBORRACHADO -->
+  <div class="product-family">
+    <h2>HALTER BOLA EMBORRACHADO</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para HALTER BOLA EMBORRACHADO.</p>
+      <p class="price">Preço: R$45,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="HALTER BOLA EMBORRACHADO - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 11: HALTER BOLA PINTADO -->
+  <div class="product-family">
+    <h2>HALTER BOLA PINTADO</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para HALTER BOLA PINTADO.</p>
+      <p class="price">Preço: R$50,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="HALTER BOLA PINTADO - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 12: HALTER SEXTAVADO EMBORRACHADO -->
+  <div class="product-family">
+    <h2>HALTER SEXTAVADO EMBORRACHADO</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para HALTER SEXTAVADO EMBORRACHADO.</p>
+      <p class="price">Preço: R$55,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="HALTER SEXTAVADO EMBORRACHADO - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
+  <!-- Família 13: HALTER SEXTAVADO PINTADO -->
+  <div class="product-family">
+    <h2>HALTER SEXTAVADO PINTADO</h2>
+    <div class="product">
+      <h3>Produto Exemplo 1</h3>
+      <p>Descrição: Produto exemplo para HALTER SEXTAVADO PINTADO.</p>
+      <p class="price">Preço: R$60,00</p>
+      <label>Quantidade:</label>
+      <input type="number" class="qty" data-product="HALTER SEXTAVADO PINTADO - Produto Exemplo 1" min="0" value="0">
+    </div>
+  </div>
+  
   <button class="process-order" onclick="processOrder()">Processar Pedido</button>
-
+  
   <script>
     function processOrder() {
-      // Coleta as quantidades dos produtos
-      const qty1 = parseInt(document.getElementById('qty1').value) || 0;
-      const qty2 = parseInt(document.getElementById('qty2').value) || 0;
-      const qty3 = parseInt(document.getElementById('qty3').value) || 0;
-      
-      // Monta a mensagem do pedido
+      const qtyInputs = document.querySelectorAll('.qty');
       let message = "Pedido:\n";
-      if (qty1 > 0) {
-        message += "Produto 1: " + qty1 + "\n";
-      }
-      if (qty2 > 0) {
-        message += "Produto 2: " + qty2 + "\n";
-      }
-      if (qty3 > 0) {
-        message += "Produto 3: " + qty3 + "\n";
-      }
-      
-      // Se nenhum produto foi selecionado, exibe alerta
+      qtyInputs.forEach(input => {
+        const quantity = parseInt(input.value) || 0;
+        if (quantity > 0) {
+          message += input.getAttribute('data-product') + ": " + quantity + "\n";
+        }
+      });
       if (message === "Pedido:\n") {
         alert("Selecione ao menos uma quantidade para algum produto.");
         return;
       }
-      
-      // Redireciona para o WhatsApp com o pedido formatado
       const whatsappURL = "https://wa.me/5537999139844?text=" + encodeURIComponent(message);
       window.location.href = whatsappURL;
     }
